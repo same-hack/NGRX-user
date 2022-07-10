@@ -1,0 +1,19 @@
+<p>user works!</p>
+
+<h2>ユーザ情報をすべて取得</h2>
+<div *ngIf="user$ | async as user">
+  name: {{ user.name }}
+  <button (click)="changeName()">名前を変更</button>
+  <br />
+  age: {{ user.age }}
+  <button (click)="countUp()">＋</button>
+  <button (click)="countDown()">ー</button>
+</div>
+
+<h2>ユーザの年齢のみ取得</h2>
+
+<div *ngIf="userAge$ | async as userAge">
+  age: {{ userAge }}
+  <button (click)="countUp()">＋</button>
+  <button (click)="countDown()">ー</button>
+</div>
