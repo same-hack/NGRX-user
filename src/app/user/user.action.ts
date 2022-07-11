@@ -5,13 +5,17 @@ ACTION
 
   基本的にデバッグツールのログ確認用途で役に立ちます。
 
-  createAction(`[呼び出されるコンポーネント名]関数名`, props等のオプション)
+  createAction(
+    `[呼び出されるコンポーネント名]関数名`,
+    props<{ 引数名: 型}>()
+  )
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿　*/
 
-import { createAction } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 
 export const countUpAction = createAction(`[User Component] countUpAction`);
 export const countDownAction = createAction(`[User Component] countDownAction`);
 export const changeNameAction = createAction(
-  `[User Component] changeNameAction`
+  `[User Component] changeNameAction`,
+  props<{ newName: string }>()
 );

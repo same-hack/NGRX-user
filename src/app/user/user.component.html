@@ -3,7 +3,8 @@
 <h2>ユーザ情報をすべて取得</h2>
 <div *ngIf="user$ | async as user">
   name: {{ user.name }}
-  <button (click)="changeName()">名前を変更</button>
+  <input type="text" [(ngModel)]="inputName" />
+  <button (click)="changeName(inputName)">名前を変更</button>
   <br />
   age: {{ user.age }}
   <button (click)="countUp()">＋</button>

@@ -5,11 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { UserModule } from './user/user.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, UserComponent],
-  // ユーザモジュールのインポート
-  imports: [BrowserModule, AppRoutingModule, UserModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    UserModule,
+    // ngModelを扱えるようにする
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

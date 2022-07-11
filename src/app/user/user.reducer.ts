@@ -24,8 +24,7 @@ export const initialState: MyUserState = {
 
 createReducer(
   initialState,
-  on(アクション名, (state) => ({
-    ...state,
+  on(アクション名, (state,{ 受け取った引数 }) => ({
     STATEの更新処理,
   })),
  */
@@ -39,9 +38,10 @@ const _userReducer = createReducer(
     ...state,
     age: state.age - 1,
   })),
-  on(changeNameAction, (state) => ({
+  // 今回更新した処理
+  on(changeNameAction, (state, { newName }) => ({
     ...state,
-    name: 'いぬハック',
+    name: newName,
   }))
 );
 

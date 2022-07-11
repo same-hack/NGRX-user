@@ -20,17 +20,14 @@ export class UserComponent implements OnInit {
   変数名　= this.store.pipe(select(SELECTORで作成した変数));
   ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿　*/
 
+  /**inputで使用 */
+  inputName: string = '';
   /**ユーザの全情報を取得 */
   user$ = this.store.pipe(select(selectUserAllInfo));
   /**ユーザの年齢を取得 */
   userAge$ = this.store.pipe(select(selectUserAge));
 
   constructor(private store: Store<MyUserState>) {}
-
-  /* ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
-  dispatch・・・STOREのデータを更新するための記述
-  this.store.dispatch(アクション名());
-  ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿　*/
 
   // STOREデータの更新
   countUp() {
@@ -42,9 +39,15 @@ export class UserComponent implements OnInit {
     this.store.dispatch(countDownAction());
   }
 
+  /* ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+  dispatch・・・STOREのデータを更新するための記述
+
+  引数をACTIONに引数を渡す
+  this.store.dispatch(アクション名({引数名: 渡したい値}));
+  ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿　*/
   // STOREデータの更新
-  changeName() {
-    this.store.dispatch(changeNameAction());
+  changeName(newValue: string) {
+    this.store.dispatch(changeNameAction({ newName: newValue }));
   }
 
   ngOnInit(): void {}
